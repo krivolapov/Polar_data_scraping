@@ -1,0 +1,5 @@
+https://matplotlib.org/examples/axes_grid/demo_parasite_axes2.html
+https://community.periscopedata.com/t/187z9z/remove-whitespace-margins-from-plotly-charts
+https://pypi.org/project/hrv-analysis/
+http://www.paulvangent.com/2016/03/15/analyzing-a-discrete-heart-rate-signal-using-python-part-1/
+https://github.com/Aura-healthcare/hrvanalysis/blob/master/CONTRIBUTING.md
