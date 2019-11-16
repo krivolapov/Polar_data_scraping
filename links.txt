@@ -7,3 +7,4 @@ https://github.com/Aura-healthcare/hrvanalysis/blob/master/CONTRIBUTING.md
 
 https://github.com/oroce/polar-h7-rr
 http://developer.polar.com/wiki/H6,_H7,_H10_and_OH1_Heart_rate_sensors
+https://polarconverter.com/
