@@ -143,7 +143,9 @@ class HeartRate(Measure):
 
 
 # --------------- TEST ---------------
-path = 'example_data/19100301.hrm'
-test = HRMParser(path)
-
-print(test.heartrate)
+# =============================================================================
+# path = 'example_data/19100301.hrm'
+# test = HRMParser(path)
+# 
+# print(test.heartrate)
+# =============================================================================
