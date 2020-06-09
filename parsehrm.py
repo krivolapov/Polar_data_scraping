@@ -10,8 +10,17 @@ class HRMParser(object):
             header = self.get_header(content)
             data = self.get_data(content)
 
-            self.time = Time(data, header[2:5])
-            self.heartrate = HeartRate(data, header[4])
+            self.time       = Time(data, header[2:5])
+            self.heartrate  = HeartRate(data, header[4])
+            self.device     = header[0]
+            self.mode       = header[1]
+            self.date       = header[2]
+            self.start_time = header[3]
+            self.interval   = header[4]
+            self.maxhr      = header[5]
+            self.resthr     = header[6]
+            self.weight     = header[7]
+            self.length     = header[8]
 
     def get_file_content(self, hrm_file):
         if not hrm_file is None:
@@ -22,7 +31,7 @@ class HRMParser(object):
 
     def get_header(self, content):
         if not content is None:
-            devices = {'36': 'Polar RS400', '38': 'Polar RS800cx'}
+            devices = {'36': 'Polar RS400', '38': 'Polar RS800cx'}              # I have to add whole list of supported devices 
             parse_data = False
             data = []
             for line in content:
@@ -39,7 +48,15 @@ class HRMParser(object):
                     start_time = line.split('=')[1]
                 elif line.lower().startswith('interval'):
                     interval = line.split('=')[1]
-            return device, mode, date, start_time, interval
+                elif line.lower().startswith('maxhr'):
+                    maxhr = line.split('=')[1]
+                elif line.lower().startswith('resthr'):
+                    resthr = line.split('=')[1]
+                elif line.lower().startswith('weight'):
+                    weight = line.split('=')[1]
+                elif line.lower().startswith('length'):
+                    length = line.split('=')[1]
+            return device, mode, date, start_time, interval, maxhr, resthr, weight, length
 
     def get_data(self, content):
         if not content is None:
@@ -144,8 +161,8 @@ class HeartRate(Measure):
 
 # --------------- TEST ---------------
 # =============================================================================
-# path = 'example_data/19100301.hrm'
-# test = HRMParser(path)
+path = 'example_data/19100301.hrm'
+test = HRMParser(path)
 # 
-# print(test.heartrate)
+print(test.time)
 # =============================================================================
