@@ -105,7 +105,7 @@ class Time(Measure):
                     raw.append(raw[-1] + timedelta(seconds=float(val[0])/1000))
         else:
             for i, val in enumerate(data):
-                raw.append(start + timedelta(seconds=i * 5))
+                raw.append(start + timedelta(seconds=i * int(interval)))
 
         elapsed = [x - raw[0] for x in raw]
         return elapsed, raw
