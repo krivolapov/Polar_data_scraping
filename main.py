@@ -11,5 +11,12 @@ from parsehrm import HRMParser
 path = 'example_data/19100301.hrm'
 test = HRMParser(path)
 
+print(test.time)
+
 #print(test.heartrate)
+
+print(test.get_header(test.get_file_content(path)))
+
+#print(test.heartrate)
+
 plt.plot(test.heartrate)
