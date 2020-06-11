@@ -4,6 +4,7 @@ https://pypi.org/project/hrv-analysis/
 http://www.paulvangent.com/2016/03/15/analyzing-a-discrete-heart-rate-signal-using-python-part-1/
 https://github.com/Aura-healthcare/hrvanalysis/blob/master/CONTRIBUTING.md
 
+https://plotly.com/python/time-series/
 
 https://github.com/oroce/polar-h7-rr
 http://developer.polar.com/wiki/H6,_H7,_H10_and_OH1_Heart_rate_sensors
