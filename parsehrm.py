@@ -8,10 +8,7 @@ class HRMParser(object):
         content = self.get_file_content(hrm_file)
         if not content is None:
             header = self.get_header(content)
-            data = self.get_data(content)
-
-            self.time       = Time(data, header[2:5])
-            self.heartrate  = HeartRate(data, header[4])
+    
             self.device     = header[0]
             self.mode       = header[1]
             self.date       = header[2]
@@ -21,6 +18,12 @@ class HRMParser(object):
             self.resthr     = header[6]
             self.weight     = header[7]
             self.length     = header[8]
+            
+            data = self.get_data(content, self.mode)  # it depends of MODE (header information)
+            self.time       = Time(data, header[2:5])
+            self.heartrate  = HeartRate(data, header[4])
+            
+            self.data = data
 
     def get_file_content(self, hrm_file):
         if not hrm_file is None:
@@ -31,9 +34,9 @@ class HRMParser(object):
 
     def get_header(self, content):
         if not content is None:
-            devices = {'36': 'Polar RS400', '38': 'Polar RS800cx'}              # I have to add whole list of supported devices 
-            parse_data = False
-            data = []
+            devices = {'36': 'Polar RS400', '38': 'Polar RS800cx', '0': 'POlar RCX3/5'}              # I have to add whole list of supported devices 
+            #parse_data = False
+            #data = []
             for line in content:
                 if line.lower().startswith('monitor'):
                     try:
@@ -58,7 +61,7 @@ class HRMParser(object):
                     length = line.split('=')[1]
             return device, mode, date, start_time, interval, maxhr, resthr, weight, length
 
-    def get_data(self, content):
+    def get_data(self, content, mode):
         if not content is None:
             parse = False
             data = []
@@ -68,6 +71,7 @@ class HRMParser(object):
                     next
                 elif parse:
                     data.append(line.split(' '))
+                   # print((line.split(' ')))
             return data
 
 
