@@ -40,7 +40,7 @@ HR_stat = test_df['HR'].describe()
 
 mode_df = pd.DataFrame(data = (list(header[1]))).T
 mode_df.columns = ['Speed','Cadence','Altitude','Power','Power Balance','Pedal Index','HR/CC','US/EU','Air Press']
-Setting_df = pd.DataFrame({'HR_MAX': int(header[5])})
+#Setting_df = pd.DataFrame({'HR_MAX': int(header[5])})
 
 weight = int(header[7])
 hr_min = int(header[6])
